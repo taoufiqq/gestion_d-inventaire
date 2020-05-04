@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 110vh;
+    font-family: 'Poppins', sans-serif;
+}
+.quote{
+    width: 1200px;
+    min-height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    z-index: 2;
+}
+.quote .box{   
+  position: relative;
+  margin-top: 30px;
+  width: 360px;
+  height: 422px;
+  grid-row-end: 400px;
+   background: #ccc;
+   overflow: hidden;
+   transition: 0.5;
+   z-index: 2;
+   box-sizing: border-box;
+   padding: 30px;
+   box-shadow: -10px 25px 50px rgba(0,0,0,.2);
+}
+.quote .box:hover{
+    box-shadow: -10px 25px 50px rgba(0,0,0,.5);
+}
+.quote .box p{
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    word-break: break-all;
+}
+
+.quote .box:hover p{
+    color: #fff;
+}
+
+.quote .box h2{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.quote .box:hover h2{
+    color: #fff;
+}
+.quote .box h6{
+    position: absolute;
+    bottom: 7px;
+    right: 30px;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+.quote .box:hover h6{
+    color: #fff;
+}
+.bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: 0.5s;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button a {
+    margin-top: 10px;
+    margin: 10px;
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    border: 2px solid #111;
+    text-transform: uppercase;
+    color: #111;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.button a:before{
+     content: '';
+     position: absolute;
+     top: 6px;
+     left: -2px;
+     width: calc(100% + 4px);
+     height: calc(100% - 12px);
+     background: #fff;
+     transition: 0.5s ease-in-out;
+     transform: scaleY(1);
+     transition-delay: 0.5s;
+}
+
+.button a:hover:before{
+  transform: scaleY(0);
+}
+
+.button a span {
+    position: relative;
+    z-index: 3;
+}
+
+.button a:after{
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: -2px;
+    height: calc(100% + 4px);
+    width: calc(100% - 12px);
+    background: #fff;
+    transition: 0.5s ease-in-out;
+    transform: scaleX(1);
+}
+
+.button a:hover:after{
+    transform: scaleX(0);
+  }
+.quote .box.box1:hover ~ .bg,
+.quote .box.box1:hover{
+    opacity: 1;
+    background: linear-gradient(#03A9F4, #E91E63);
+}
+
+.image{
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-left: 100px;
+}
+
+
+/* Page AddPage & editPage Css */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+#body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #03080a;
+}
+
+.container{
+    width: 80%;
+    padding: 20px;
+}
+.container h2{
+    width: 100%;
+    color: #45f3ff;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+.container .row100{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(autofit, minmax(300px, 1fr));
+}
+
+.container .row100 .col{
+    position: relative;
+    width: 100%;
+    padding: 0 10px;
+    margin: 30px 0 10px;
+    transition: 0.5s;
+}
+.container .row100 .inputBox{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    color: #45f3ff;
+}
+.container .row100 .inputBox input,
+.container .row100 .inputBox.textarea textarea{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 0 10px;
+    z-index: 1;
+    color: #000;
+}
+.container .row100 .inputBox .text{
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 40px;
+    font-size: 18px;
+    padding: 0 10px;
+    display: block;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.container .row100 .inputBox input:focus + .text,
+.container .row100 .inputBox input:valid + .text{
+    top: -35px;
+    left: -10px;
+}
+
+.container .row100 .inputBox .line{
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #45f3ff;
+    transition: 0.5s;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+.container .row100 .inputBox input:focus ~ .line,
+.container .row100 .inputBox input:valid ~ .line{
+    height: 100%;
+}
+.container .row100 .inputBox .textarea {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.container .row100 .inputBox .textarea textarea{
+    height: 100%;
+    resize: none;
+}
+
+.container .row100 .inputBox textarea:focus + .text,
+.container .row100 .inputBox textarea:valid + .text{
+    top: -35px;
+    left: -10px;
+}
+.container .row100 .inputBox textarea:focus ~ .line,
+.container .row100 .inputBox textarea:valid ~ .line{
+    height: 100%;
+}
+
+input[type="submit"]{
+    border: none;
+    padding: 7px 35px;
+    cursor: pointer;
+    outline: none;
+    background: #45f3ff;
+    color: #000;
+    font-size: 18px;
+    border-radius: 2px;
+}
+
+/* datalist css */
+.inputBox{
+    position: relative;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+  }
+  
+  
+  .inputText{
+    position: absolute;
+    line-height: 50px;
+    font-size: 24px;
+    transition: .5s;
+    opacity: .5;
+    margin-top: 20px;
+  }
+  
+  .focus .inputText{
+    transform: translateY(-30);
+    font-size: 18px;
+    opacity: 1;
+    color: #00bcd4;
+  }
+
+
+  /* Scroll Bar css */
+::-webkit-scrollbar{
+    width: 25px;
+}
+
+::-webkit-scrollbar-track{
+    border: 7px solid #232943;
+    box-shadow: inset 0 0 2.5px 2px rgba(0,0,0,.5);
+}
+
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(45deg, #06dee1, #79ff6c);
+    border-radius: 3px;
+}

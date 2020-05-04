@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>caissier</title>
+	 <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <script src="https://kit.fontawesome.com/f87defdbca.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/go.css">
+</head>
+<body>
+
+
+
+
+ <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/"><i class="fas fa-shopping-cart text-danger"></i> Stock management</a>
+  
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <a class="nav-link" href="/"><i class="fas fa-home fa-2x text-info"></i></a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="/">
+              <span data-feather="home"></span>
+              Dashboard <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/product">
+              produits
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/rayon">
+   
+              Rayons
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/fournisseur">
+              Fournisseurs
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="bar-chart-2"></span>
+              Caissier
+            </a>
+          </li>
+         
+        </ul>
+      </div>
+    </nav>
+
+    <section class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="container-fluid">
+        <div class="container">
+          <div class="formBox">
+            <form role="form" action="/caisse" method="POST" autocomplete="off">
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <h1>Caissier</h1>
+                </div>
+                <div class="form">
+              
+                
+                <div class="row d-flex .justify-content-center">
+                  <div class="col-sm-12">
+                    <div class="inputText">Produits</div>
+                     <input list="text_editors" class="input" name="produit_id">
+                    </div>
+                      <datalist id="text_editors">
+
+                          <select multiple size=8>
+                          
+                             <% prods.forEach(function(pr){ %>
+
+                      <option value="<%= pr.produit_id %>" ><%= pr.produit_name%></option>
+                      <% }); %>
+                       
+                          </select>
+                        </datalist>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="inputBox">
+                      <div class="inputText">Quantité</div>
+                      <input type="text" name="Quantité" class="input">
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="inputBox">
+                      <input type="submit" value="Send Result" class="buttone">   
+                    </div>  
+                  </div>
+                </div>
+                
+        
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>    
+<script type="text/javascript">
+   $(".input").focus(function(){
+     $(this).parent().addClass("focus");
+   }).blur(function(){
+     if($(this).val() === ''){
+       $(this).parent().removeClass("focus");
+     }
+   })
+</script>
+<script>
+  button = document.querySelector('button');
+datalist = document.querySelector('datalist');
+select = document.querySelector('select');
+options = select.options;
+
+/* on arrow button click, show/hide the DDL*/
+button.addEventListener('click', toggle_ddl);
+
+function toggle_ddl() {
+  if (datalist.style.display === '') {
+    datalist.style.display = 'block';
+    this.textContent = "▲";
+    /* If input already has a value, select that option from DDL */
+    var val = input.value;
+    for (var i = 0; i < options.length; i++) {
+      if (options[i].text === val) {
+        select.selectedIndex = i;
+        break;
+      }
+    }
+  } else hide_select();
+}
+
+/* when user selects an option from DDL, write it to text field */
+select.addEventListener('change', fill_input);
+
+function fill_input() {
+  input.value = options[this.selectedIndex].value;
+  hide_select();
+}
+
+/* when user wants to type in text field, hide DDL */
+input = document.querySelector('input');
+input.addEventListener('focus', hide_select);
+
+function hide_select() {
+  datalist.style.display = '';
+  button.textContent = "▼";
+}
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,399 @@
+body {
+
+  font-size: .875rem;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  /* Behind the navbar */
+  padding: 48px 0 0;
+  /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+.navbar-dark .navbar-brand {
+    color: #fff;
+    background-color: #203c6b;
+}
+
+.bg-dark {
+    background-color: #203c6b!important;
+}
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Scrollable contents if viewport is shorter than content. */
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #999;
+}
+
+.sidebar .nav-link.active {
+  color: #007bff;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+/*
+ * Content
+ */
+
+[role="main"] {
+  padding-top: 133px;
+  /* Space for fixed navbar */
+}
+
+@media (min-width: 768px) {
+  [role="main"] {
+    padding-top: 48px;
+    /* Space for fixed navbar */
+  }
+}
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, .25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+/* page product */
+
+.content{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 51px;
+}
+.search-box{
+  display: flex;
+  align-items: center;
+}
+.content .add {
+  display: flex;
+  justify-content: end;
+  margin-right: 0px;
+  
+}
+
+.add button {
+  font-size: 2rem;
+  border: none;
+  background:#38C2CF;
+ 
+}
+
+.Add button {
+  color: #38C2CF;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add button:hover {
+  background: #38C2CF;
+  color: white;
+
+}
+
+.add button i{
+  color: white;
+  padding: 7px;
+}
+
+
+input[type="submit"]{
+  border: none;
+  padding: 7px 35px;
+  cursor: pointer;
+  outline: none;
+  background: #45f3ff;
+  color: #000;
+  font-size: 18px;
+  border-radius: 2px;
+}
+
+.button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button a {
+  margin-top: 10px;
+  margin: 10px;
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  border: 2px solid #111;
+  text-transform: uppercase;
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.button a:before{
+   content: '';
+   position: absolute;
+   top: 6px;
+   left: -2px;
+   width: calc(100% + 4px);
+   height: calc(100% - 12px);
+   background: #fff;
+   transition: 0.5s ease-in-out;
+   transform: scaleY(1);
+   transition-delay: 0.5s;
+}
+
+.button a:hover:before{
+transform: scaleY(0);
+}
+
+.button a span {
+  position: relative;
+  z-index: 3;
+}
+
+.button a:after{
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: -2px;
+  height: calc(100% + 4px);
+  width: calc(100% - 12px);
+  background: #fff;
+  transition: 0.5s ease-in-out;
+  transform: scaleX(1);
+}
+
+.button a:hover:after{
+  transform: scaleX(0);
+}
+
+
+/* page caissier */
+.formBox{
+  margin-top: 80px;
+  padding: 50px;
+}
+
+h1{
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  
+}
+
+.inputBox{
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+}
+
+.input{
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, .5);
+  margin-top: 40px;
+}
+.inputText{
+  position: absolute;
+  line-height: 50px;
+  font-size: 24px;
+  transition: .5s;
+  opacity: .5;
+  margin-top: 20px;
+}
+
+.focus .inputText{
+  transform: translateY(-30);
+  font-size: 18px;
+  opacity: 1;
+  color: #00bcd4;
+}
+
+.buttone{
+width: 483px;
+  background: #00bcd4;
+  color: #fff;
+  border-radius: 0;
+  border: none;
+  outline: none;
+  height: 50px;
+  font-size: 24px;
+}
+.form{
+ margin: auto;
+}
+
+
+
+/* 4. Remove Dropdown selection dot */
+select:-moz-focusring { color: transparent !important; text-shadow: 0 0 0 #000;} /* FF */
+.form-group input:focus { outline: none !important; } /* IE */
+
+body {
+  text-align: center;
+}
+
+input {
+  width: 250px;
+  height: 30px;
+  padding: 3px;
+  border: 1px solid #DDE1E4;
+}
+
+select {
+  width: 258px;
+  position: relative;
+  left: -17px;
+  margin: 0;
+  border: 1px solid #DDE1E4;
+  border-top: none;
+  font-size:9pt;
+}
+
+datalist {
+  display: none;
+}
+
+option {
+  padding: 3px;
+}
+
+option:hover {
+  background-color: #11E8EA;
+}
+
+
+
+h3,
+h4 {
+  text-align: center;
+}
+
+
+/* to hide datalist arrow in webkit */
+
+input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+input[type=text]:focus {
+  width: 100%;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 15px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+
+
+  /* Scroll Bar css */
+  ::-webkit-scrollbar{
+    width: 25px;
+}
+
+::-webkit-scrollbar-track{
+    border: 7px solid #232943;
+    box-shadow: inset 0 0 2.5px 2px rgba(0,0,0,.5);
+}
+
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(45deg, #06dee1, #79ff6c);
+    border-radius: 3px;
+}

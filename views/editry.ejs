@@ -1,0 +1,125 @@
+<!doctype html>
+    <html lang="en">
+      <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="/style.css">
+
+      </head>
+      <body id="body">
+          <div class="container">
+            <h2>EDIT Rayons</h2>
+            <form action="/updatery" method="POST" autocomplete="off">
+              <div class="row100">
+                <div class="col">
+                  <div class="inputBox">
+                     <input type="hidden" name="Rayon_id" required="required" value="<%= ry.Rayon_id %>">
+   
+                  </div>
+                </div>   
+             </div>   
+            <div class="row100">
+               <div class="col">
+                 <div class="inputBox">
+                    <input type="text" name="Rayon_name" required="required" value="<%= ry.Rayon_name %>">
+                    <span class="text">Rayon</span>
+                    <span class="line"></span>
+                 </div>
+               </div>   
+            
+            
+            <div class="row100"> 
+              <div class="col">
+                 <input type="submit" value="Send">
+              </div>
+            </div>           
+            </div>
+          </form>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <script src="https://code.jquery.com/jquery-3.2.1.js"></script>    
+          <script type="text/javascript">
+             $(".input").focus(function(){
+               $(this).parent().addClass("focus");
+             }).blur(function(){
+               if($(this).val() === ''){
+                 $(this).parent().removeClass("focus");
+               }
+             })
+          </script>
+          <script>
+            button = document.querySelector('button');
+          datalist = document.querySelector('datalist');
+          select = document.querySelector('select');
+          options = select.options;
+          
+          /* on arrow button click, show/hide the DDL*/
+          button.addEventListener('click', toggle_ddl);
+          
+          function toggle_ddl() {
+            if (datalist.style.display === '') {
+              datalist.style.display = 'block';
+              this.textContent = "▲";
+              /* If input already has a value, select that option from DDL */
+              var val = input.value;
+              for (var i = 0; i < options.length; i++) {
+                if (options[i].text === val) {
+                  select.selectedIndex = i;
+                  break;
+                }
+              }
+            } else hide_select();
+          }
+          
+          /* when user selects an option from DDL, write it to text field */
+          select.addEventListener('change', fill_input);
+          
+          function fill_input() {
+            input.value = options[this.selectedIndex].value;
+            hide_select();
+          }
+          
+          /* when user wants to type in text field, hide DDL */
+          input = document.querySelector('input');
+          input.addEventListener('focus', hide_select);
+          
+          function hide_select() {
+            datalist.style.display = '';
+            button.textContent = "▼";
+          }
+          </script>
+        
+     
+      </body>
+
+</html>
