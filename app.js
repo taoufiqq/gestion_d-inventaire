@@ -3,7 +3,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mysql = require('mysql');
-const PORT = process.env.PORT || 1000
 
 
 const app = express();
@@ -34,6 +33,6 @@ app.use((req, res, next) => {
 
 
 //  Listing Server 
-app.listen(PORT, () => {
+app.listen(3000, () => {
     console.log('server is rinning')
 });
